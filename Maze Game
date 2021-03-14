@@ -1,0 +1,102 @@
+var Sofia = createSprite(20,25,18,18)
+Sofia.shapeColor = "orange"
+
+var cb1 = createSprite(118,40,13,40)
+var cb2 = createSprite(54,32,10,70)
+var cb3 = createSprite(50,101,500,10)
+var cb4 = createSprite(90,62,70,10)
+var cb5 = createSprite(260,60,170,10)
+var cb6 = createSprite(350,200,10,290)
+var cb7 = createSprite(296,199,10,200)
+var cb8 = createSprite(68,297,200,10)
+var cb9 = createSprite(200,340,300,10)
+var cb10 = createSprite(5,394,900,40)
+var cb11 = createSprite(397,360,10,30)
+cb11.shapeColor = "orange"
+var cb12 = createSprite(37,141,10,70)
+var cb13 = createSprite(216,189,150,10)
+var cb14 = createSprite(216,121,10,50)
+var cb15 = createSprite(53,260,10,70)
+var cb16 = createSprite(146,170,10,40)
+var cb17 = createSprite(60,171,50,10)
+var cb18 = createSprite(255,170,10,30)
+var cb19 = createSprite(79,120,10,35)
+var cb20 = createSprite(115,275,10,50)
+var cb21 = createSprite(260,264,70,10)
+var cb22 = createSprite(380,336,47,20)
+cb22.shapeColor = "black"
+
+
+
+
+
+
+
+
+function draw() {
+  background("black")
+  
+  if(keyDown(UP_ARROW)){
+    Sofia.velocityX = 0
+    Sofia.velocityY = -4
+    
+  }
+  
+  if(keyDown(DOWN_ARROW)){
+    Sofia.velocityX = 0
+    Sofia.velocityY = 4
+    
+  }
+  
+  if(keyDown(RIGHT_ARROW)){
+    Sofia.velocityX = 4
+    Sofia.velocityY = 0
+    
+  }
+  
+  if(keyDown(LEFT_ARROW)){
+    Sofia.velocityX = -4
+    Sofia.velocityY = 0
+    
+  }
+  
+  if (Sofia.isTouching(cb1) || Sofia.isTouching(cb2) || Sofia.isTouching(cb3) || Sofia.isTouching(cb4) || Sofia.isTouching(cb5) || Sofia.isTouching(cb6) || Sofia.isTouching(cb7) || Sofia.isTouching(cb8) || Sofia.isTouching(cb9) || Sofia.isTouching(cb10) || Sofia.isTouching(cb12) || Sofia.isTouching(cb13) || Sofia.isTouching(cb14) || Sofia.isTouching(cb15) || Sofia.isTouching(cb16) || Sofia.isTouching(cb17) || Sofia.isTouching(cb18) || Sofia.isTouching(cb19) || Sofia.isTouching(cb20) || Sofia.isTouching(cb21)) 
+{
+  Sofia.velocityX = 0;
+  Sofia.velocityY = 0;
+  
+  Sofia.x = 25
+  Sofia.y = 25
+}
+
+  if(cb22.isTouching(Sofia)){
+    textSize(30) 
+    fill("orange")
+    text("No Easy Route", 150, 36)
+    Sofia.velocityX = 0
+    Sofia.velocityY = 0
+    
+    Sofia.x = 380
+    Sofia.y = 336
+  }
+  
+  if(Sofia.isTouching(cb11)){
+    textSize(30)
+    fill("white")
+    text("You Win.", 133, 217)
+    Sofia.velocityX = 0
+    Sofia.velocityY = 0
+    
+    Sofia.x = 390
+    Sofia.y = 361
+  }
+
+
+
+
+
+  createEdgeSprites();
+  Sofia.bounceOff(edges);
+  
+drawSprites();
+}
